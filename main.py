@@ -20,6 +20,8 @@ def main():
     assert text.count(".") == 1 and text.endswith("."), (
         "entry must be exactly one sentence"
     )
+    assert "  " not in text, "entry must not contain double spaces"
+    assert text[0].isupper(), "entry must start with a capital letter"
     assert text == ENTRY, "entry text must not be altered"
     os.makedirs("/output", exist_ok=True)
     with open("/output/entry.txt", "w", encoding="utf-8") as f:
